@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* base style */
+
+body {
+  @apply bg-dark
+}
+html {
+  --scrool-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
+/* TYPOGRAPHY */
+
+h1{
+  @apply text-8xl font-medium
+}
+h2{
+  @apply text-5xl 
+}
+h3{
+  @apply text-2xl
+}
+
+p{
+  @apply text-base
+}
+small{
+  @apply text-sm
+}
+
+.eq {
+  transition: 500ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+.nav-active{
+  @apply py-0.5 px-2 border-2 border-orange
+}
+
+.nav-lists {
+  @apply flex  items-center gap-5;
+}
+.nav-lists {
+  @apply   max-lg:w-full max-lg:h-full max-lg:absolute max-lg:top-0 max-lg:bottom-0 max-lg:right-0 max-lg:left-0 max-lg:bg-slate-300 max-lg:flex max-lg:justify-center max-lg:items-center max-lg:flex-col max-lg:opacity-0 max-lg:invisible max-lg:translate-x-0 origin-top h-full;
+}
+
+.active .nav-lists {
+  @apply max-lg:fixed  max-lg:visible max-lg:opacity-100 max-lg:translate-x-0 max-lg:z-[9999]   h-full;
+}
+
+.mobile-navber-btn {
+  @apply hidden bg-transparent cursor-pointer border-none max-lg:inline-block max-lg:z-[9999] max-lg:border;
+}
+
+.mobile-navber-icon[name="close-outline"] {
+  @apply hidden max-lg:text-4xl max-lg:text-black ;
+}
+
+.active .mobile-navber-icon {
+  @apply max-lg:hidden max-lg:text-4xl max-lg:absolute max-lg:top-[5%] max-lg:right-[5%] max-lg:text-black max-lg:z-[9999];
+}
+.close-outline {
+  @apply hidden;
+}
+.active .close-outline {
+  @apply max-lg:inline-block fixed;
+}
+
+.active-color {
+  @apply opacity-100;
+}
+
