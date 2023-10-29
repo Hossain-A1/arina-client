@@ -6,6 +6,9 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { SlideData } from "../data/slideData";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import Overlay from "@/components/ui/Overlay";
 
 const Slider = () => {
   return (
@@ -18,10 +21,10 @@ const Slider = () => {
         pagination={{ clickable: true }}
         navigation={true}
         modules={[Navigation, Pagination, Autoplay]}
-        className='mySwiper h-full w-full'
+        className='mySwiper h-full w-full '
       >
         {SlideData.map((slide) => (
-          <SwiperSlide key={slide.heading}>
+          <SwiperSlide key={slide.heading} className='w-full h-full relative'>
             <Image
               src={slide.image}
               alt={slide.heading}
@@ -30,7 +33,14 @@ const Slider = () => {
               priority
               className='w-full h-full object-cover'
             />
-            <h2 className='text-light'>{slide.heading}</h2>
+            <Overlay />
+            <div className='section-p container absolute bottom-0 left-0 right-0 top-0 h-full w-full space-y-5 text-white'>
+              <h1>{slide.heading}</h1>
+              <p className='max-w-6xl'>{slide.subHeading}</p>
+              <Link href='/packages' className={cn({ variant: "secondary" })}>
+                Browse Beauty Packages
+              </Link>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

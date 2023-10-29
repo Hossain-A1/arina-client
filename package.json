@@ -12,10 +12,12 @@
     "@types/scheduler": "^0.16.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "lucide-react": "^0.290.0",
     "next": "13.5.5",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
+    "react-spinners": "^0.13.8",
     "swiper": "^11.0.3",
     "swr": "^2.2.4",
     "tailwind-merge": "^1.14.0"

@@ -1,89 +1,50 @@
-"use client";
-import Link from "next/link";
-import { FiShoppingCart } from "react-icons/fi";
-import { CgClose, CgMenu } from "react-icons/cg";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+'use client';
+
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { buttonVariants } from '../ui/Button';
+
+
+const navContents = [
+  { href: '/', label: 'Home' },
+  { href: '/packages', label: 'Packages' },
+  { href: '/specialists', label: 'Specialists' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
 
 const Navber = () => {
-  const [icon, setIcon] = useState(true);
-  const pathName = usePathname();
+  const pathname = usePathname();
 
   return (
-    <header className='h-20 flex flex-col justify-center items-center bg-light text-dark'>
-      <nav className='wrapper flex items-center justify-around'>
-        <h2>Hello</h2>
-        <div className={icon ? "navber active" : "navber"}>
-          <ul className='nav-lists'>
-            <li className='max-lg:w-2/3 max-lg:text-center  max-lg:bg-orange/30 max-lg:hover:bg-orange/50 max-lg:duration-300'>
+    <header className='fixed left-0 right-0 top-0 z-[100] flex h-20 w-full items-center border-b border-gray bg-white/90 backdrop-blur-xl'>
+      <nav className='container flex items-center justify-between gap-5'>
+        <Link href='/' className='text-2xl font-semibold'>
+          arina<span className='text-red'>.</span>
+        </Link>
+        <ul className='flex items-center gap-5 text-lg'>
+          {navContents.map((item) => (
+            <li key={item.label}>
               <Link
-                href='/'
-                onClick={() => setIcon(false)}
-                className={`${pathName === "/" ? "nav-active " : ""}`}
+                href={item.href}
+                className={cn(
+                  'link-item',
+                  pathname === item.href ? 'text-black' : 'text-black/50'
+                )}
               >
-                Home
+                {item.label}
               </Link>
             </li>
-            <li className='max-lg:w-2/3 max-lg:text-center  max-lg:bg-orange/30 max-lg:hover:bg-orange/50 max-lg:duration-300'>
-              <Link
-                href='/about'
-                onClick={() => setIcon(false)}
-                className={`${pathName === "/about" ? "nav-active " : ""}`}
-              >
-                About
-              </Link>
-            </li>
-            <li className='max-lg:w-2/3 max-lg:text-center  max-lg:bg-orange/30 max-lg:hover:bg-orange/50 max-lg:duration-300'>
-              <Link
-                href='/packages'
-                onClick={() => setIcon(false)}
-                className={`${pathName === "/packages" ? "nav-active " : ""}`}
-              >
-                Packages
-              </Link>
-            </li>
-            <li className='max-lg:w-2/3 max-lg:text-center  max-lg:bg-orange/30 max-lg:hover:bg-orange/50 max-lg:duration-300'>
-              <Link
-                href='/contact'
-                onClick={() => setIcon(false)}
-                className={`${pathName === "/contact" ? "nav-active " : ""}`}
-              >
-                Contact
-              </Link>
-            </li>
-            <li className='max-lg:w-2/3 max-lg:text-center  max-lg:bg-orange/30 max-lg:hover:bg-orange/50 max-lg:duration-300'>
-              <Link
-                href='/login'
-                onClick={() => setIcon(false)}
-                className={`${pathName === "/login" ? "nav-active " : ""}`}
-              >
-                login
-              </Link>
-            </li>
-            <li className='relative '>
-              <Link href='/cart' onClick={() => setIcon(false)} className=''>
-                <FiShoppingCart className='text-xl max-md:text-2xl' />
-                <span className='absolute -top-2 left-4 bg-orange rounded-full text-xs '>
-                  10
-                </span>
-              </Link>
-            </li>
-          </ul>
+          ))}
 
-          {/* mobile responsive */}
-          <div className='mobile-navber-btn '>
-            <CgMenu
-              name='menu-outline'
-              className='mobile-navber-icon text-4xl'
-              onClick={() => setIcon(true)}
-            />
-            <CgClose
-              name='close-outline'
-              className='mobile-navber-icon close-outline'
-              onClick={() => setIcon(false)}
-            />
-          </div>
-        </div>
+          <Link
+            href='/sign-in'
+            className={cn(buttonVariants({ variant: 'danger' }))}
+          >
+            Sign In
+          </Link>
+        </ul>
       </nav>
     </header>
   );
