@@ -5,7 +5,7 @@ import Packages from "@/components/package/Packages";
 const PackagesPage = () => {
   return (
     <div>
-      <Packages />
+      <Packages native/>
     </div>
   );
 };

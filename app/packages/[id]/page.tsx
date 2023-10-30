@@ -1,6 +1,11 @@
-'use client'
-import PackageDetails from "@/components/package/PackageDetails";
+"use client";
+
+import Packageitem from "@/app/packages/[id]/_components/Packageitem";
+import Button from "@/components/ui/Button";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
 import useFetch from "@/hooks/useFetch";
+import { useRouter } from "next/navigation";
 
 const Package = ({ params }: { params: { id: string } }) => {
   const {
@@ -8,7 +13,26 @@ const Package = ({ params }: { params: { id: string } }) => {
     error,
     isLoading,
   } = useFetch(`/api/beauty_packages/${params.id}`);
-  return <main>{packageItem && <PackageDetails  packages={packageItem}/>}</main>;
+
+  const router = useRouter();
+  return (
+    <main>
+      {isLoading && (
+        <div className='min-h-screen flex items-center justify-center'>
+          <Loading isLoading={isLoading} />
+        </div>
+      )}
+      {error && (
+        <div className='min-h-screen flex flex-col items-center justify-center gap-2.5'>
+          <Error error={error.message} />
+          <Button onClick={() => router.back()}>Go Back</Button>
+        </div>
+      )}
+      {
+        packageItem && <Packageitem item={packageItem}/>
+      }
+    </main>
+  );
 };
 
 export default Package;
