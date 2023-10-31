@@ -1,5 +1,6 @@
 import Packages from "@/components/package/Packages";
 import Slider from "./_components/Slider";
+import Specialists from "../specialists/_components/Specialists";
 
 const HomePage = () => {
   return (
@@ -7,6 +8,7 @@ const HomePage = () => {
       <main>
        <Slider/>
         <Packages />
+        <Specialists/>
       </main>
     </>
   );
