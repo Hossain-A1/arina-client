@@ -1,14 +1,14 @@
 import Packages from "@/components/package/Packages";
 import Slider from "./_components/Slider";
-import Specialists from "../specialists/_components/Specialists";
+import Specialists from "../specialists/[id]/_components/Specialists";
 
 const HomePage = () => {
   return (
     <>
       <main>
-       <Slider/>
+        <Slider />
         <Packages />
-        <Specialists/>
+        <Specialists />
       </main>
     </>
   );

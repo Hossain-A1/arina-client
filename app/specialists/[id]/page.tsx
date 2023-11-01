@@ -1,22 +1,21 @@
 "use client";
-
-import Packageitem from "@/app/packages/[id]/_components/Packageitem";
-import Button from "@/components/ui/Button";
 import Error from "@/components/ui/Error";
 import Loading from "@/components/ui/Loading";
 import useFetch from "@/hooks/useFetch";
+import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
+import SpecialistItem from "./_components/SpecialistItem";
 
-const Package = ({ params }: { params: { id: string } }) => {
+const Specialist = ({ params }: { params: { id: string } }) => {
   const {
-    data: packageItem,
-    error,
+    data: specialistItem,
     isLoading,
-  } = useFetch(`/api/beauty_packages/${params.id}`);
-
+    error,
+  } = useFetch(`/api/specialists/${params.id}`);
   const router = useRouter();
+
   return (
-    <main>
+    <main className='container section-p'>
       {isLoading && (
         <div className='min-h-screen flex items-center justify-center'>
           <Loading isLoading={isLoading} />
@@ -28,9 +27,10 @@ const Package = ({ params }: { params: { id: string } }) => {
           <Button onClick={() => router.back()}>Go Back</Button>
         </div>
       )}
-      {packageItem && <Packageitem item={packageItem} />}
+
+      {specialistItem && <SpecialistItem item={specialistItem} />}
     </main>
   );
 };
 
-export default Package;
+export default Specialist;
