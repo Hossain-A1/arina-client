@@ -1,11 +1,11 @@
 "use client";
 
-import Packages from "@/components/package/Packages";
+import Packages from "@/app/packages/package/Packages";
 
 const PackagesPage = () => {
   return (
-    <div>
-      <Packages native/>
+    <div className="section-p">
+      <Packages native />
     </div>
   );
 };

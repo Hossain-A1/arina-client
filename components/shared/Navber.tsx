@@ -1,24 +1,23 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { buttonVariants } from '../ui/Button';
-
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { buttonVariants } from "../ui/Button";
 
 const navContents = [
-  { href: '/', label: 'Home' },
-  { href: '/packages', label: 'Packages' },
-  { href: '/specialists', label: 'Specialists' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: "/", label: "Home" },
+  { href: "/packages", label: "Packages" },
+  { href: "/specialists", label: "Specialists" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const Navber = () => {
   const pathname = usePathname();
 
   return (
-    <header className='fixed left-0 right-0 top-0 z-[100] flex h-20 w-full items-center border-b border-gray bg-white/90 backdrop-blur-xl'>
+    <header className='fixed left-0 right-0 top-0 z-[999] flex h-20 w-full items-center border-b border-gray bg-white/90 backdrop-blur-xl'>
       <nav className='container flex items-center justify-between gap-5'>
         <Link href='/' className='text-2xl font-semibold'>
           arina<span className='text-red'>.</span>
@@ -29,8 +28,8 @@ const Navber = () => {
               <Link
                 href={item.href}
                 className={cn(
-                  'link-item',
-                  pathname === item.href ? 'text-black' : 'text-black/50'
+                  "link-item",
+                  pathname === item.href ? "text-black" : "text-black/50"
                 )}
               >
                 {item.label}
@@ -40,7 +39,7 @@ const Navber = () => {
 
           <Link
             href='/sign-in'
-            className={cn(buttonVariants({ variant: 'danger' }))}
+            className={cn(buttonVariants({ variant: "danger" }))}
           >
             Sign In
           </Link>

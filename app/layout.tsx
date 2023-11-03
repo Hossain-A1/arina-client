@@ -19,10 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={cn(inter.className,"bg-light, text-dark antialiased" )}>
+      <body className={cn(inter.className, 'bg-white text-black antialiased')}>
         <Navber />
         {children}
-      <Footer />
+        <Footer />
       </body>
     </html>
   );

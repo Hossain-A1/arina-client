@@ -1,14 +1,14 @@
 "use client";
 import useFetch from "@/hooks/useFetch";
 import { packagesType } from "@/types/packagesType";
-import SectionTitle from "../ui/SectionTitle";
-import PackageCard from "../../app/packages/[id]/_components/PackageCard ";
-import Loading from "../ui/Loading";
-import Error from "../ui/Error";
+import SectionTitle from "../../../components/ui/SectionTitle";
+import PackageCard from "../[id]/_components/PackageCard ";
+import Loading from "../../../components/ui/Loading";
+import Error from "../../../components/ui/Error";
 import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/Button";
+import { buttonVariants } from "../../../components/ui/Button";
 
 interface PackagesProps {
   native?: boolean;

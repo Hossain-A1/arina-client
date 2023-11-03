@@ -1,4 +1,4 @@
-import Packages from "@/components/package/Packages";
+import Packages from "@/app/packages/package/Packages";
 import Slider from "./_components/Slider";
 import Specialists from "../specialists/[id]/_components/Specialists";
 

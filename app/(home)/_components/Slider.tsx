@@ -9,6 +9,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Overlay from "@/components/ui/Overlay";
+import { buttonVariants } from "@/components/ui/Button";
 
 const Slider = () => {
   return (
@@ -28,8 +29,8 @@ const Slider = () => {
             <Image
               src={slide.image}
               alt={slide.heading}
-              height={750}
-              width={1125}
+              width={1920}
+              height={1080}
               priority
               className='w-full h-full object-cover'
             />
@@ -37,7 +38,10 @@ const Slider = () => {
             <div className='section-p container absolute bottom-0 left-0 right-0 top-0 h-full w-full space-y-5 text-white'>
               <h1>{slide.heading}</h1>
               <p className='max-w-6xl'>{slide.subHeading}</p>
-              <Link href='/packages' className={cn({ variant: "secondary" })}>
+              <Link
+                href='/packages'
+                className={cn(buttonVariants({ variant: "secondary" }))}
+              >
                 Browse Beauty Packages
               </Link>
             </div>
