@@ -4,23 +4,21 @@
 
 /* base style */
 
-
 html {
   --scrool-behavior: smooth !important;
   scroll-behavior: smooth !important;
 }
-.section-p{
-  @apply py-20
+.section-p {
+  @apply py-20;
 }
-main{
-  @apply mt-20
+main {
+  @apply mt-20;
 }
 
 .eq {
   transition: 500ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 /* TYPOGRAPHY */
-
 
 h1 {
   @apply text-8xl font-medium;
@@ -95,7 +93,6 @@ small {
   color: rgb(217, 17, 74) !important;
   fill: rgb(217, 17, 74) !important;
   stroke: rgb(217, 17, 74) !important;
-  font-weight: small !important;
 }
 
 .swiper-pagination-bullet {
@@ -105,5 +102,3 @@ small {
 .swiper-pagination-bullet-active {
   background-color: rgb(217, 17, 74) !important;
 }
-
-
