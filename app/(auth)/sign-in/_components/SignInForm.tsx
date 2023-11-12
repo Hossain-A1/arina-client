@@ -1,8 +1,11 @@
-'use client';
+"use client";
 
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
-import { useCallback, useState } from 'react';
+import Button from "@/components/ui/Button";
+import { signUpPost } from "@/lib/signUpPost";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
+import toast from "react-hot-toast";
 
 interface SignInFormData {
   email: string;
@@ -11,17 +14,34 @@ interface SignInFormData {
 
 const SignInForm = () => {
   const [formData, setFormData] = useState<SignInFormData>({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
+
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const router = useRouter()
 
   const handleSubmit = useCallback(
     async (e: React.SyntheticEvent) => {
       e.preventDefault();
+      setLoading(true);
 
-      console.log(formData);
+      const data = await signUpPost("/api/auth/login", formData);
+
+      if (data) {
+        setLoading(false);
+        setFormData({
+          email: "",
+          password: "",
+        });
+        toast.success("Login successfull");
+        router.push('/')
+      } else {
+        setLoading(false);
+      }
     },
-    [formData]
+    [formData,router]
   );
 
   return (
@@ -47,7 +67,7 @@ const SignInForm = () => {
             type='email'
             id='email'
             placeholder='hello@example.com'
-            className='eq w-full rounded-2xl border border-gray bg-transparent p-5 outline-none focus:border-blue'
+            className='eq w-full rounded-xl border border-gray bg-transparent px-5 py-3 outline-none focus:border-blue'
           />
         </div>
 
@@ -63,16 +83,16 @@ const SignInForm = () => {
             type='password'
             id='password'
             placeholder='Write your password'
-            className='eq w-full rounded-2xl border border-gray bg-transparent p-5 outline-none focus:border-blue'
+            className='eq w-full rounded-xl border border-gray bg-transparent px-5 py-3 outline-none focus:border-blue'
           />
         </div>
 
-        <Button variant='primary' type='submit'>
+        <Button variant='primary' type='submit' isLoading={loading} >
           Login
         </Button>
 
         <p>
-          <span className='text-black/50'>Do not have an account?</span>{' '}
+          <span className='text-black/50'>Do not have an account?</span>{" "}
           <Link href='/sign-up' className='link-item'>
             Register
           </Link>
