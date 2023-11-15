@@ -2,10 +2,12 @@
 
 import Button from "@/components/ui/Button";
 import { signUpPost } from "@/lib/signUpPost";
+import { login } from "@/redux/features/auth/authSlice";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import toast from "react-hot-toast";
+import {useDispatch} from "react-redux"
 
 interface SignInFormData {
   email: string;
@@ -21,6 +23,7 @@ const SignInForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const router = useRouter()
+  const dispatch = useDispatch()
 
   const handleSubmit = useCallback(
     async (e: React.SyntheticEvent) => {
@@ -35,13 +38,14 @@ const SignInForm = () => {
           email: "",
           password: "",
         });
+        dispatch(login(data))
         toast.success("Login successfull");
         router.push('/')
       } else {
         setLoading(false);
       }
     },
-    [formData,router]
+    [formData,router,dispatch]
   );
 
   return (

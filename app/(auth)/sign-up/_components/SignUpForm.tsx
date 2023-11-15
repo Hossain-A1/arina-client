@@ -3,11 +3,12 @@
 import Button from "@/components/ui/Button";
 import { photoUrlChecker } from "@/helpers/photoUrlChecker";
 import { signUpPost } from "@/lib/signUpPost";
+import { login } from "@/redux/features/auth/authSlice";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import toast from "react-hot-toast";
-
+import {useDispatch} from "react-redux"
 interface SignInFormData {
   name: string;
   email: string;
@@ -26,6 +27,7 @@ const SignUpForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const router = useRouter()
+  const dispatch = useDispatch()
   const handleSubmit = useCallback(
     async (e: React.SyntheticEvent) => {
       e.preventDefault();
@@ -44,6 +46,7 @@ const SignUpForm = () => {
             password: "",
             photoUrl: "",
           });
+          dispatch(login(data))
           toast.success("Register successfull");
           router.push('/')
         } else {
@@ -56,7 +59,7 @@ const SignUpForm = () => {
         );
       }
     },
-    [formData,router]
+    [formData,router,dispatch]
   );
 
   return (
