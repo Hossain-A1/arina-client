@@ -18,7 +18,7 @@ const Packages: React.FC<PackagesProps> = ({ native }) => {
   const { data: packages, error, isLoading } = useFetch("/api/beauty_packages");
 
   return (
-    <section className='section-p container'>
+    <section className='section-p mt-10 container space-y-5'>
       <SectionTitle title='Beauty Packages' />
 
       {isLoading && <Loading isLoading={isLoading} />}

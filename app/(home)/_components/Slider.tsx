@@ -13,7 +13,7 @@ import { buttonVariants } from "@/components/ui/Button";
 
 const Slider = () => {
   return (
-    <section className='h-[calc(100vh-5rem)]'>
+    <section className='h-[calc(100vh-5rem)] mt-20'>
       <Swiper
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop={true}

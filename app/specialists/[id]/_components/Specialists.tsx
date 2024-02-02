@@ -16,7 +16,7 @@ interface SpecialistsProps {
 const Specialists: React.FC<SpecialistsProps> = ({ native }) => {
   const { data: specialilsts, isLoading, error } = useFetch("/api/specialists");
   return (
-    <section className='container section-p'>
+    <section className='container mt-10 section-p space-y-5'>
       <SectionTitle title='Specialists' />
 
       {isLoading && <Loading isLoading={isLoading} />}
