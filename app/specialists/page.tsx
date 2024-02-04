@@ -1,4 +1,4 @@
-import Specialists from "./[id]/_components/Specialists";
+import Specialists from "./_components/Specialists";
 
 const SpecialistsPage = () => {
   return (

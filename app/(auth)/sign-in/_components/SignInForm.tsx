@@ -49,7 +49,7 @@ const SignInForm = () => {
   );
 
   return (
-    <div className='flex flex-col gap-10'>
+    <div className='flex flex-col gap-10 w-full'>
       <div className='flex flex-col gap-1.5'>
         <h2>Welcome back!</h2>
         <p className='text-black/50'>Please login to your account</p>
@@ -59,7 +59,7 @@ const SignInForm = () => {
         onSubmit={handleSubmit}
         className='flex w-full flex-col gap-5 text-lg'
       >
-        <div className='flex flex-col items-start gap-1.5'>
+        <div className='flex flex-col items-start gap-1.5 w-full'>
           <label htmlFor='email' className='cursor-pointer'>
             Email address
           </label>

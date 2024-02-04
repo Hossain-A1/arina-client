@@ -3,9 +3,9 @@ import Image from "next/image";
 const Contact = () => {
   return (
     <section className='container section-p mt-10'>
-      <div className='grid lg:grid-cols-2 grid-cols-1 gap-10 bg-black/5'>
-        <div className='p-10'>
-          <div className='bg-white rounded-2xl space-y-2 w-full h-full overflow-hidden py-5 px-10'>
+      <div className='grid lg:grid-cols-2 grid-cols-1 max-md:rounded-2xl gap-10 bg-black/5'>
+        <div className='lg:p-10'>
+          <div className='bg-white rounded-2xl space-y-2 w-full h-full overflow-hidden py-5 lg:px-10'>
             <div className='space-y-1'>
               <span>Get in Touch</span>
               <h3 className='text-4xl font-thin'>
@@ -16,7 +16,7 @@ const Contact = () => {
                 message,and we'll respond within 24 hours
               </h6>
             </div>
-            <div className='flex gap-5 w-full'>
+            <div className='lg:flex gap-5 w-full'>
               <div className='space-y-2'>
                 <label htmlFor='firstname'>First Name</label>
                 <input
@@ -60,7 +60,7 @@ const Contact = () => {
           </div>
         </div>
         {/*--------  */}
-        <div className="flex flex-col gap-5 h-full w-full overflow-hidden  p-10 ">
+        <div className="flex flex-col gap-5 h-full w-full overflow-hidden  lg:p-10 ">
           <div className="h-2/3 w-full">
             <Image
               src='https://images.pexels.com/photos/190168/pexels-photo-190168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
@@ -71,9 +71,12 @@ const Contact = () => {
               className='h-full w-full object-cover rounded-2xl'
             />
           </div>
-          <div>
+          <div className="space-y-2">
             <div className="w-full px-2 py-6 bg-black/5 rounded-2xl">
-              <h3 className="text-4xl">arinaspa@gmail.com</h3>
+              <h3 className="lg:text-4xl">arinaspa@gmail.com</h3>
+            </div>
+            <div className="w-full px-2 py-6 bg-black/5 rounded-2xl">
+              <h3 className="lg:text-4xl">+93759375324</h3>
             </div>
           </div>
         </div>

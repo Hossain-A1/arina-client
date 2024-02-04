@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "react-hot-toast";
 import ReduxProvider from "@/providers/ReduxProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"],weight:['100','200','300','400','500','600','700','800','900'] });
 
 export const metadata: Metadata = {
   title: "Welcome to arina home",

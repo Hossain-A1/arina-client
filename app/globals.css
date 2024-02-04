@@ -12,7 +12,6 @@ html {
   @apply py-20;
 }
 
-
 .eq {
   transition: 500ms cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -48,42 +47,27 @@ small {
   @apply w-full;
 }
 
-/* .nav-active {
-  @apply py-0.5 px-2 border-2 border-orange;
-}
-
-.nav-lists {
-  @apply flex  items-center gap-5;
-}
-.nav-lists {
-  @apply max-lg:w-full max-lg:h-full max-lg:absolute max-lg:top-0 max-lg:bottom-0 max-lg:right-0 max-lg:left-0 max-lg:bg-slate-300 max-lg:flex max-lg:justify-center max-lg:items-center max-lg:flex-col max-lg:opacity-0 max-lg:invisible max-lg:translate-x-0 origin-top h-full;
-}
-
-.active .nav-lists {
-  @apply max-lg:fixed  max-lg:visible max-lg:opacity-100 max-lg:translate-x-0 max-lg:z-[9999]   h-full;
-}
-
+/* responsive  navigation*/
 .mobile-navber-btn {
   @apply hidden bg-transparent cursor-pointer border-none max-lg:inline-block max-lg:z-[9999] max-lg:border;
 }
 
+.active .mobile-navber-icon   {
+  @apply max-lg:hidden max-lg:text-xl  max-lg:absolute;
+}
+
 .mobile-navber-icon[name="close-outline"] {
-  @apply hidden max-lg:text-4xl max-lg:text-black;
+  @apply hidden max-lg:text-xl  max-lg:text-white;
 }
 
-.active .mobile-navber-icon {
-  @apply max-lg:hidden max-lg:text-4xl max-lg:absolute max-lg:top-[5%] max-lg:right-[5%] max-lg:text-black max-lg:z-[9999];
-}
 .close-outline {
-  @apply hidden;
+  @apply hidden text-2xl;
 }
-.active .close-outline {
-  @apply max-lg:inline-block fixed;
+.active .close-outline  {
+  @apply max-lg:inline-block text-2xl  fixed top-8 right-6  border border-red rounded-full   text-black;
 }
 
-.active-color {
-  @apply opacity-100;
-} */
+
 
 /* SWIPER STYLES */
 .swiper-button-next,

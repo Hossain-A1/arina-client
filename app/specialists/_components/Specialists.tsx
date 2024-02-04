@@ -4,7 +4,7 @@ import Loading from "@/components/ui/Loading";
 import SectionTitle from "@/components/ui/SectionTitle";
 import useFetch from "@/hooks/useFetch";
 import { specialistType } from "@/types/specialistType";
-import SpecialistCard from "./SpecialistCard";
+import SpecialistCard from "../[id]/_components/SpecialistCard";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/Button";
@@ -32,7 +32,7 @@ const Specialists: React.FC<SpecialistsProps> = ({ native }) => {
 
             {!native &&
               specialilsts
-                .slice(0, 8)
+                .slice(0, 3)
                 .map((specialist: specialistType) => (
                   <SpecialistCard
                     key={specialist._id}

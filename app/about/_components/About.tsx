@@ -7,7 +7,7 @@ const About = () => {
     <section className='grid lg:grid-cols-2 grid-cols-1'>
       <div className='px-20 py-5 bg-blue/30'>
         <div className='flex flex-col gap-10 justify-center items-center '>
-          <h2>Who we are</h2>
+          <h3>Who we are</h3>
           <p>
             {
               "At Arina, our mission is to create a sanctuary of holistic well-being, offering unparalleled spa experiences that nurture both body and spirit. With a focus on expert therapies, luxurious treatments, and personalized care, we aim to inspire profound rejuvenation and self-discovery. By blending timeless traditions with innovative wellness practices, we elevate the spa experience, crafting moments of pure serenity for our cherished guests."

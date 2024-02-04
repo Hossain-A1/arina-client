@@ -25,7 +25,7 @@ const Packages: React.FC<PackagesProps> = ({ native }) => {
       {error && <Error error={error.message} />}
       {packages && (
         <>
-          <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
+          <div className='grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 items-center 2xl:grid-cols-4'>
             {native &&
               packages
                 .sort((a: packagesType, b: packagesType) => a.price - b.price)
@@ -38,7 +38,7 @@ const Packages: React.FC<PackagesProps> = ({ native }) => {
             {!native &&
               packages
                 .sort((a: packagesType, b: packagesType) => a.price - b.price)
-                .slice(0.8)
+                .slice(0,3)
                 .map((packageitem: packagesType) => (
                   <PackageCard
                     key={packageitem._id}

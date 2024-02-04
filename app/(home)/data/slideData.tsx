@@ -1,6 +1,6 @@
 export const SlideData = [
   {
-    image: "/assets/images/slide-image1.jpg",
+    image: "/assets/images/slide-image4.jpg",
     heading: "Luxury Facials",
     subHeading:
       "Indulge in our rejuvenating and refreshing luxury facial treatments that are tailored to your unique skin needs. Experience the ultimate relaxation while our skilled estheticians pamper your skin and leave you feeling radiant and revitalized.",
@@ -19,7 +19,7 @@ export const SlideData = [
       "Transform your look with our top-notch hair styling and makeover services. Whether its a new haircut, color, or a complete makeover, our talented hairstylists will help you discover your unique style and confidence.",
   },
   {
-    image: "/assets/images/slide-image4.jpg",
+    image: "/assets/images/slide-image1.jpg",
     heading: "Pampering Spa Packages",
     subHeading:
       "Indulge in our meticulously crafted spa packages that offer a delightful combination of treatments to invigorate your senses. From body scrubs to hot stone massages, our spa packages are the epitome of relaxation and self-care.",

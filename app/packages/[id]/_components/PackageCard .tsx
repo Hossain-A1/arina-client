@@ -10,7 +10,7 @@ interface PackageCardProps {
 
 const PackageCard: React.FC<PackageCardProps> = ({ packageitem }) => {
   return (
-    <div className='w-full rounded-xl bg-white p-5 shadow-sm shadow-gray'>
+    <div className='w-full h-full rounded-xl bg-white p-5 shadow-sm shadow-gray'>
       <Link
         href={`/packages/${packageitem._id}`}
         className='inline-block w-full h-[20rem] overflow-hidden rounded-xl group'
