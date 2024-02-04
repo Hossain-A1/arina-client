@@ -3,6 +3,7 @@ import Slider from "./_components/Slider";
 import Specialists from "../specialists/_components/Specialists";
 import Contact from "@/components/Contact";
 import About from "../about/_components/About";
+import CustomerReviews from "@/components/shared/CustomerReviews";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
         <Packages />
         <About/>
         <Specialists />
+        <CustomerReviews/>
         <Contact />
       </main>
     </>
