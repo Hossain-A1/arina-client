@@ -9,7 +9,7 @@ const CustomerReviews = () => {
 
         <div className="flex-1 flex items-center justify-center flex-wrap gap-10 bg-gradient-to-bl from-violet-700 to-blue/70 py-10 px-5">
           {SlideData.map((data) => (
-            <div key={data.date} className="py-10 px-5 space-y-5 rounded-2xl shadow-xl bg-white  h-auto w-[30%]">
+            <div key={data.date} className="py-10 px-5 space-y-5 rounded-2xl shadow-xl bg-white  h-auto lg:w-[30%]">
               <div className="flex gap-3 text-2xl">
                 <strong className="text-yellow-500">{data.icon}</strong>
                 <strong className="text-yellow-500">{data.icon}</strong>
