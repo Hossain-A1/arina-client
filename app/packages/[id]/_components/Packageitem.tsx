@@ -1,23 +1,76 @@
+
 import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { RootState } from "@/redux/store";
 import { packagesType } from "@/types/packagesType";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 interface PackageitemProps {
   item: packagesType;
 }
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
+);
+
 const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
+  const isUser = useSelector(
+    (state: RootState) => state.auth.userAndToken?.user
+  );
+  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
   const [changeImage, setChangeImage] = useState(item.images[0]);
+
+  const stripeCheckout = async () => {
+    if (!isUser) {
+      return router.push("/sign-in");
+    }
+    setLoading(true);
+
+    const stripe = await stripePromise;
+
+    if (!stripe) {
+      throw new Error("Failed to load Stripe script");
+    }
+
+    const res = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/create-checkout-session`,
+      {
+        items: [item],
+        title: item.title,
+        name: isUser.name,
+        email: isUser.email,
+      }
+    );
+    const session = await res.data;
+
+    // Check if the session is valid
+    if (!session || !session.id) {
+      throw new Error("Invalid checkout session");
+    }
+
+    /*Redirect to the stripe payment */
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+    if (result.error) {
+      console.log(result.error.message);
+    }
+  };
+
   return (
-    <section className='section-p container grid lg:grid-cols-2 grid-cols-1 gap-10'>
-      <div className='apckage-images flex justify-between items-center'>
+    <section className='section-p container grid lg:grid-cols-2  gap-10'>
+      <div className='apckage-images flex justify-between gap-5 items-center h-full w-full'>
         <div className='small-images space-y-2.5'>
           {item.images.map((image, i) => (
             <figure
               key={i}
-              className='h-[6rem] w-[6rem] cursor-pointer overflow-hidden'
+              className='lg:h-[6rem] lg:w-[6rem] h-16 w-16 cursor-pointer overflow-hidden'
             >
               <img
                 onClick={() => setChangeImage(image)}
@@ -28,7 +81,7 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
             </figure>
           ))}
         </div>
-        <div className='large-image h-[24rem] w-[24rem] overflow-hidden'>
+        <div className='large-image lg:h-[24rem] lg:w-[24rem] w-full h-full overflow-hidden'>
           <Image
             src={changeImage}
             alt={item.title}
@@ -47,12 +100,12 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
         <span>${item.price}</span>
 
         <p>{item.description}</p>
-        <Link
-          href='/checkout'
-          className={cn(buttonVariants({ variant: "danger" }))}
+        <button
+          onClick={stripeCheckout}
+          className={cn(buttonVariants({ variant: "secondary", size: "full" }))}
         >
-          Checkout
-        </Link>
+          Buy Now
+        </button>
       </div>
     </section>
   );
