@@ -16,7 +16,7 @@ const Package = ({ params }: { params: { id: string } }) => {
 
   const router = useRouter();
   return (
-    <main className="section-p container min-h-screen">
+    <main className=" min-h-screen">
       {isLoading && (
         <div className='min-h-screen  flex items-center justify-center'>
           <Loading isLoading={isLoading} />

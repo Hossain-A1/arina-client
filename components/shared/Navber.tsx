@@ -126,7 +126,7 @@ const Navber = () => {
                   </Link>
                 ) : (
                   <div
-                    className='flex max-lg: items-center gap-5 justify-center h-full bg-red'
+                    className='flex max-lg: items-center gap-5 justify-center h-full '
                     onClick={() =>
                       setShouldProfilePopupOpen(!shouldProfilePopupOpen)
                     }

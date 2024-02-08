@@ -1,11 +1,11 @@
-
-import { buttonVariants } from "@/components/ui/Button";
+import Button, { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { RootState } from "@/redux/store";
 import { packagesType } from "@/types/packagesType";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -42,9 +42,11 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/create-checkout-session`,
       {
         items: [item],
+        packageId:item._id,
         title: item.title,
         name: isUser.name,
         email: isUser.email,
+        
       }
     );
     const session = await res.data;
@@ -64,8 +66,8 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
   };
 
   return (
-    <section className='section-p container grid lg:grid-cols-2  gap-10'>
-      <div className='apckage-images flex justify-between gap-5 items-center h-full w-full'>
+    <section className='section-p mt-10 container grid lg:grid-cols-2 h-full w-full    lg:gap-10 gap-5'>
+      <div className='apckage-images flex  gap-5 items-center w-full h-full'>
         <div className='small-images space-y-2.5'>
           {item.images.map((image, i) => (
             <figure
@@ -85,8 +87,8 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
           <Image
             src={changeImage}
             alt={item.title}
-            height={340}
-            width={680}
+            height={740}
+            width={1080}
             priority
             className='h-full w-full object-cover hover:scale-150 eq'
           />
@@ -100,12 +102,22 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
         <span>${item.price}</span>
 
         <p>{item.description}</p>
-        <button
-          onClick={stripeCheckout}
-          className={cn(buttonVariants({ variant: "secondary", size: "full" }))}
-        >
-          Buy Now
-        </button>
+        <div className='flex gap-5 items-center'>
+          <Link
+            href='/packages'
+            className={cn(buttonVariants({ variant: "outline" }))}
+          >
+            Back to Packages
+          </Link>
+          <Button
+            onClick={stripeCheckout}
+            variant='secondary'
+            isLoading={loading}
+            size='full'
+          >
+            Buy Now
+          </Button>
+        </div>
       </div>
     </section>
   );
