@@ -42,11 +42,10 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/create-checkout-session`,
       {
         items: [item],
-        packageId:item._id,
+        packageId: item._id,
         title: item.title,
         name: isUser.name,
         email: isUser.email,
-        
       }
     );
     const session = await res.data;
@@ -95,12 +94,12 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
         </div>
       </div>
 
-      <div className='package-description space-y-2.5'>
+      <div className='package-description space-y-5'>
         <h2>{item.title}</h2>
         <small>{item.createdAt}</small>
-        <h4>{item.category}</h4>
-        <span>${item.price}</span>
 
+        <h4>{item.category}</h4>
+        <span className='text-2xl font-bold'>Price: ${item.price}</span>
         <p>{item.description}</p>
         <div className='flex gap-5 items-center'>
           <Link
