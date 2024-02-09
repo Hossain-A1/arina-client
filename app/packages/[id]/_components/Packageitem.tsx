@@ -73,7 +73,9 @@ const Packageitem: React.FC<PackageitemProps> = ({ item }) => {
               key={i}
               className='lg:h-[6rem] lg:w-[6rem] h-16 w-16 cursor-pointer overflow-hidden'
             >
-              <img
+              <Image
+                height={400}
+                width={400}
                 onClick={() => setChangeImage(image)}
                 src={image}
                 alt={item.title}

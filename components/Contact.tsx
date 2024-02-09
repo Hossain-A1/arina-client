@@ -9,11 +9,11 @@ const Contact = () => {
             <div className='space-y-1'>
               <span>Get in Touch</span>
               <h3 className='text-4xl font-thin'>
-                Let's chat, Reach Out to Us
+                {`Let's chat, Reach Out to Us`}
               </h3>
               <h6 className='text-sm'>
-                Have quations or feedback?We are here to help.Send us a
-                message,and we'll respond within 24 hours
+                {`Have quations or feedback?We are here to help.Send us a
+                message,and we'll respond within 24 hours`}
               </h6>
             </div>
             <div className='lg:flex gap-5 w-full'>
@@ -55,13 +55,14 @@ const Contact = () => {
                 cols={30}
                 rows={7}
                 className='outline-none py-3 resize-none px-6 rounded-lg border-2 bg-black/10 border-white focus:border-2 focus:border-black eq'
-              placeholder="Your message here"></textarea>
+                placeholder='Your message here'
+              ></textarea>
             </div>
           </div>
         </div>
         {/*--------  */}
-        <div className="flex flex-col gap-5 h-full w-full overflow-hidden  lg:p-10 ">
-          <div className="h-2/3 w-full">
+        <div className='flex flex-col gap-5 h-full w-full overflow-hidden  lg:p-10 '>
+          <div className='h-2/3 w-full'>
             <Image
               src='https://images.pexels.com/photos/190168/pexels-photo-190168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
               alt='contact image'
@@ -71,12 +72,12 @@ const Contact = () => {
               className='h-full w-full object-cover rounded-2xl'
             />
           </div>
-          <div className="space-y-2">
-            <div className="w-full px-2 py-6 bg-black/5 rounded-2xl">
-              <h3 className="lg:text-4xl">arinaspa@gmail.com</h3>
+          <div className='space-y-2'>
+            <div className='w-full px-2 py-6 bg-black/5 rounded-2xl'>
+              <h3 className='lg:text-4xl'>arinaspa@gmail.com</h3>
             </div>
-            <div className="w-full px-2 py-6 bg-black/5 rounded-2xl">
-              <h3 className="lg:text-4xl">+93759375324</h3>
+            <div className='w-full px-2 py-6 bg-black/5 rounded-2xl'>
+              <h3 className='lg:text-4xl'>+93759375324</h3>
             </div>
           </div>
         </div>
